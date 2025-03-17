@@ -14,6 +14,7 @@ export default function PersonalInfoScreen({ navigation, route }) {
       alert("Пожалуйста, заполните все поля");
       return;
     }
+console.log("Selected Role:", role);  // Проверка, передается ли роль
 
     try {
       const response = await fetch("https://app11-5.onrender.com/personal-info", {
