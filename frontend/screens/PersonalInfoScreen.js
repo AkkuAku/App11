@@ -16,7 +16,7 @@ export default function PersonalInfoScreen({ navigation, route }) {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/personal-info", {
+      const response = await fetch("https://app11-5.onrender.com/personal-info", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ fullName, email, birthDate, gender, phone, role }), // Добавляем роль
