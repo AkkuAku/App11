@@ -9,6 +9,10 @@ export default function PersonalInfoScreen({ navigation, route }) {
   const [gender, setGender] = useState("");
   const [phone, setPhone] = useState("");
 
+  const cors = require('cors');
+app.use(cors());
+
+
   const handleNext = async () => {
     if (!fullName || !email || !birthDate || !gender || !phone) {
       alert("Пожалуйста, заполните все поля");
