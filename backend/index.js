@@ -14,7 +14,7 @@ const pool = new Pool({
   user: 'db_kfqw_user',  // Use the username from your Render PostgreSQL
   host: 'dpg-cvbtf0dds78s73aomq8g-a',  // Use the hostname from your Render database
   database: 'db_kfqw',  // Use the database name
-  password: '7naCaVCRzHvKQzctOvzFnJigM27e4wbS',  // Use the password from your Render database
+  password: '7naCaVCRzHvKQcztOvzFnJigM27e4wbS',  // Use the password from your Render database
   port: 5432,  // Use the default PostgreSQL port
   ssl: {
     rejectUnauthorized: false,  // This is necessary for cloud databases like Render
