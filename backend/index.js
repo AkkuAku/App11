@@ -11,18 +11,22 @@ app.use(express.json());
 
 // PostgreSQL Connection
 const pool = new Pool({
-  user: "postgres",
-  host: "localhost",
-  database: "Repo",
-  password: "newpassword",
-  port: 5432,
+  user: 'db_kfqw_user',  // Use the username from your Render PostgreSQL
+  host: 'dpg-cvbtf0dds78s73aomq8g-a',  // Use the hostname from your Render database
+  database: 'db_kfqw',  // Use the database name
+  password: '7naCaVCRzHvKQzctOvzFnJigM27e4wbS',  // Use the password from your Render database
+  port: 5432,  // Use the default PostgreSQL port
+  ssl: {
+    rejectUnauthorized: false,  // This is necessary for cloud databases like Render
+  }
 });
 
-pool.connect((err) => {
+// Example query to check the connection
+pool.query('SELECT NOW()', (err, res) => {
   if (err) {
-    console.error("Database connection error:", err);
+    console.error('Error connecting to the database:', err.stack);
   } else {
-    console.log("Connected to PostgreSQL!");
+    console.log('Database connected successfully:', res.rows);
   }
 });
 
