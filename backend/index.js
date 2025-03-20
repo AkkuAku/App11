@@ -162,7 +162,7 @@ app.post("/register", async (req, res) => {
   });
 
 app.put("/update-profile", async (req, res) => {
-  const { id, city, experience, additionalInfo, exams, subjects, languages, isOnline, minPrice } = req.body;
+  const { id, city, experience, additionalInfo, exams, subjects, languages,  is_online, minPrice } = req.body;
 
   if (!id) {
     return res.status(400).json({ error: "ID пользователя обязателен" });
@@ -181,7 +181,7 @@ app.put("/update-profile", async (req, res) => {
            min_price = $8 
        WHERE id = $9 
        RETURNING *`,
-      [city, experience, additionalInfo, JSON.stringify(exams), JSON.stringify(subjects), JSON.stringify(languages), is_online,, minPrice, id]
+      [city, experience, additionalInfo, JSON.stringify(exams), JSON.stringify(subjects), JSON.stringify(languages), is_online, minPrice, id]
     );
 
     if (result.rowCount > 0) {
