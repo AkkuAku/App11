@@ -178,7 +178,7 @@ app.put("/update-profile", async (req, res) => {
            subjects = $5, 
            languages = $6, 
            is_online = $7, 
-           min_price = $8 
+           minprice = $8 
        WHERE id = $9 
        RETURNING *`,
       [city, experience, additionalInfo, JSON.stringify(exams), JSON.stringify(subjects), JSON.stringify(languages), is_online, minPrice, id]
