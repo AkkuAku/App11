@@ -162,7 +162,7 @@ app.post("/register", async (req, res) => {
   });
 
 app.put("/update-profile", async (req, res) => {
-  const { id, city, experience, additionalInfo, exams, subjects, languages,  is_online, minPrice } = req.body;
+  const { id, city, experience,additionalInfo, exams, subjects, languages, is_online, minPrice } = req.body;
 
   if (!id) {
     return res.status(400).json({ error: "ID пользователя обязателен" });
