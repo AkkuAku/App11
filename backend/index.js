@@ -160,6 +160,31 @@ app.post("/register", async (req, res) => {
       res.status(500).json({ error: "Ошибка сервера" });
     }
   });
+
+app.put("/update-profile", async (req, res) => {
+  const { id, city, experience, additionalInfo, exams, subjects, languages, isOnline } = req.body;
+
+  if (!id) {
+    return res.status(400).json({ error: "ID пользователя обязателен" });
+  }
+
+  try {
+    const result = await pool.query(
+      `UPDATE users SET city = $1, experience = $2, additional_info = $3, exams = $4, subjects = $5, languages = $6, is_online = $7 WHERE id = $8 RETURNING *`,
+      [city, experience, additionalInfo, JSON.stringify(exams), JSON.stringify(subjects), JSON.stringify(languages), isOnline, id]
+    );
+
+    if (result.rowCount > 0) {
+      res.status(200).json({ message: "Профиль обновлен", user: result.rows[0] });
+    } else {
+      res.status(404).json({ error: "Пользователь не найден" });
+    }
+  } catch (error) {
+    console.error("Ошибка БД:", error);
+    res.status(500).json({ error: "Ошибка сервера" });
+  }
+});
+
   
   
 
