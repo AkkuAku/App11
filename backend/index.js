@@ -182,7 +182,7 @@ const { id, city, experience, additional_info, exams, subjects, languages, is_on
            minprice = $8 
        WHERE id = $9 
        RETURNING *`,
-      [city, experience, additionalInfo, JSON.stringify(exams), JSON.stringify(subjects), JSON.stringify(languages), is_online, minPrice, id]
+      [city, experience, additional_info, JSON.stringify(exams), JSON.stringify(subjects), JSON.stringify(languages), is_online, minPrice, id]
     );
 
     if (result.rowCount > 0) {
