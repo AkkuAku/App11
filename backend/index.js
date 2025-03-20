@@ -179,7 +179,7 @@ const { id, city, experience, additional_info, exams, subjects, languages, is_on
            subjects = $5, 
            languages = $6, 
            is_online = $7, 
-           minprice = $8 
+           minPrice = $8 
        WHERE id = $9 
        RETURNING *`,
       [city, experience, additional_info, JSON.stringify(exams), JSON.stringify(subjects), JSON.stringify(languages), is_online, minPrice, id]
