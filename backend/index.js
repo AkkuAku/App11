@@ -170,7 +170,7 @@ app.put("/update-profile", async (req, res) => {
 
   try {
     const result = await pool.query(
-      `UPDATE users SET city = $1, experience = $2, additional_info = $3, exams = $4, subjects = $5, languages = $6, is_online = $7 min_price = $8 WHERE id = $9 RETURNING *`,
+      `UPDATE users SET city = $1, experience = $2, additional_info = $3, exams = $4, subjects = $5, languages = $6, is_online = $7 min_price = $8 WHERE id = $ RETURNING *`,
       [city, experience,minPrice, additionalInfo, JSON.stringify(exams), JSON.stringify(subjects), JSON.stringify(languages), isOnline, id]
     );
 
