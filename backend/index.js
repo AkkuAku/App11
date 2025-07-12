@@ -12,10 +12,10 @@ app.use(express.json());
 
 // PostgreSQL Connection
 const pool = new Pool({
-  user: 'db_kfqw_user',  // Use the username from your Render PostgreSQL
-  host: 'dpg-cvbtf0dds78s73aomq8g-a',  // Use the hostname from your Render database
-  database: 'db_kfqw',  // Use the database name
-  password: '7naCaVCRzHvKQcztOvzFnJigM27e4wbS',  // Use the password from your Render database
+  user: 'app_ozsn_user',  // Use the username from your Render PostgreSQL
+  host: 'dpg-d1p25ijuibrs73d9lgm0-a',  // Use the hostname from your Render database
+  database: 'app_ozsn',  // Use the database name
+  password: '0WEWybMvmuFd0j53wXlR9hIxDHs83mIo',  // Use the password from your Render database
   port: 5432,  // Use the default PostgreSQL port
   ssl: {
     rejectUnauthorized: false,  // This is necessary for cloud databases like Render
