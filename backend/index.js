@@ -12,13 +12,14 @@ app.use(express.json());
 
 // PostgreSQL Connection
 const pool = new Pool({
-  user: process.env.DB_USER,
-  host: process.env.DB_HOST,
-  database: process.env.DB_NAME,
-  password: process.env.DB_PASSWORD,
-  port: parseInt(process.env.DB_PORT, 10),
-  ssl: { rejectUnauthorized: false } // required by managed Postgres
+  user: "app_ozsn_user",
+  host: "dpg-d1p25ijuibrs73d9lgm0-a.oregon-postgres.render.com",
+  database: "app_ozsn",
+  password: "0WEWybMvmuFd0j53wXlR9hIxDHs83mIo",
+  port: 5432,
+  ssl: { rejectUnauthorized: false }
 });
+
 
 
 
