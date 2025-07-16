@@ -197,6 +197,40 @@ const { id, city, experience, additional_info, exams, subjects, languages, is_on
   }
 });
 
+// controllers/publishController.js
+app.post("/profiles/publish", async (req, res) => {
+  const {
+    id, fullName, phone, city, experience,
+    additionalInfo, exams, subjects, languages,
+    is_online, minPrice, profileImage
+  } = req.body;
+
+  if (!id) return res.status(400).json({ error: "ID обязателен" });
+
+  try {
+    const result = await pool.query(
+      `UPDATE users
+       SET city = $1, experience = $2, additional_info = $3,
+           exams = $4, subjects = $5, languages = $6,
+           is_online = $7, min_price = $8, profile_image = $9,
+           published = TRUE
+       WHERE id = $10
+       RETURNING *`,
+      [
+        city, experience, additionalInfo, JSON.stringify(exams),
+        JSON.stringify(subjects), JSON.stringify(languages),
+        is_online, minPrice, profileImage, id
+      ]
+    );
+    if (!result.rowCount) return res.status(404).json({ error: "Пользователь не найден" });
+    res.json({ message: "Профиль опубликован", profile: result.rows[0] });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Ошибка сервера" });
+  }
+});
+
+
 
   
   
