@@ -230,6 +230,15 @@ app.post("/profiles/publish", async (req, res) => {
   }
 });
 
+app.get("/profiles", async (req, res) => {
+  try {
+    const result = await pool.query("SELECT * FROM users WHERE published = TRUE");
+    res.json(result.rows);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Ошибка сервера" });
+  }
+});
 
 
   
