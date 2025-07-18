@@ -240,6 +240,24 @@ app.get("/profiles", async (req, res) => {
   }
 });
 
+// DELETE-профиля по id
+app.delete("/profiles/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+    const result = await pool.query(
+      "DELETE FROM users WHERE id = $1",
+      [id]
+    );
+    if (result.rowCount === 0) {
+      return res.status(404).json({ error: "Профиль не найден" });
+    }
+    res.status(200).json({ message: "Профиль успешно удалён" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Ошибка сервера" });
+  }
+});
+
 
   
   
