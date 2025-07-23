@@ -212,7 +212,7 @@ app.post("/profiles/publish", async (req, res) => {
       `UPDATE users
        SET city = $1, experience = $2, additional_info = $3,
            exams = $4, subjects = $5, languages = $6,
-           is_online = $7, minPrice = $8, profile_image = $9,
+           is_online = $7, minprice = $8, profile_image = $9,
            published = TRUE
        WHERE id = $10
        RETURNING *`,
