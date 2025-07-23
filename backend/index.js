@@ -200,7 +200,7 @@ const { id, city, experience, additional_info, exams, subjects, languages, is_on
 // controllers/publishController.js
 app.post("/profiles/publish", async (req, res) => {
   const {
-    id, fullName, phone, city, experience,
+    id, full_name, phone, city, experience,
     additionalInfo, exams, subjects, languages,
     is_online, minPrice, profileImage
   } = req.body;
